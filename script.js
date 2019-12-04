@@ -11,3 +11,30 @@
 </ol>
 <img src="${}">
 */
+
+let form = document.getElementById('launchForm').firstElementChild
+console.log(form)
+
+form.addEventListener('submit', function(){
+   let pilotName     = document.getElementsByName('pilotName')
+      ,copilotName   = document.getElementsByName('copilotName')
+      ,cargoMass     = document.getElementsByName('cargoMass')
+      ,fuelLevel    = document.getElementsByName('fuelStatus')
+
+   if(typeof copilotName != 'string' || typeof pilotName != 'string'){
+      preventDefault()
+      alert('Please complete form')
+   } 
+   else if(isNaN(cargoMass.value) || isNaN(fuelLevel.value)){
+      preventDefault()
+      alert('Please complete form');
+   } 
+
+   let pilotStatus = document.getElementById('pilotStatus') 
+      ,copilotStatus= document.getElementById('copilotStatus')
+      ,fuelStatus= document.getElementById('fuelStatus')
+      ,cargoStatus= document.getElementById('cargoStatus')
+
+      pilotStatus.innerHTML = `Pilot ${pilotStatus.value} is ready for launch`
+      copilotStatus.innerHTML = `Pilot ${pilotStatus.value} is ready for launch`
+});
